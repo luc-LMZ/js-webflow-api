@@ -137,6 +137,11 @@ declare class Webflow {
     query?: Webflow.WebflowQueryArg
   ): Promise<{ deleted: number }>;
 
+  publishItems(
+      data: { collectionId: string; itemIds: string[] },
+      query?: Webflow.WebflowQueryArg
+  ): Promise<Webflow.WebflowApiModel.CollectionItem>;
+
   patchItem(
     // TODO: add a better data type
     data: { collectionId: string; itemId: string } & Record<string, any>,
@@ -272,6 +277,10 @@ declare namespace Webflow {
       >;
       updateItem: OmitPropertyFromFirstArgOfFunction<
         Webflow["updateItem"],
+        "collectionId"
+      >;
+      publishItems: OmitPropertyFromFirstArgOfFunction<
+        Webflow["publishItems"],
         "collectionId"
       >;
       removeItem: OmitPropertyFromFirstArgOfFunction<

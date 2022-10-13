@@ -60,6 +60,12 @@ export default class ResponseWrapper {
           ...rest
         );
       },
+      publishItems(first, ...rest) {
+        return this.api.publishItems(
+          { ...first, collectionId: collection._id },
+          ...rest
+        );
+      }
     };
   }
 
